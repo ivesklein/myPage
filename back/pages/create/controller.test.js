@@ -19,7 +19,7 @@ class DummyJWTNotPass extends JWTValidator{
     }
 }
 const dummyJWTPass = new DummyJWTPass();
-const dummyJWTNotPass = new DummyJWTPass();
+const dummyJWTNotPass = new DummyJWTNotPass();
 
 test('receives data, and return the data', async () => {
 
@@ -52,11 +52,7 @@ test('receives incomplete data, throws error', async () => {
         }
     }
 
-    try {
-        await controller(data, storage, dummyJWTPass);
-    } catch (error) {
-        expect(error.message).toBe('id is required');
-    }
+    await expect(controller(data, storage, dummyJWTPass)).rejects.toThrow('id is required');
 })
 
 test('receives incomplete data, throws error', async () => {
@@ -70,11 +66,7 @@ test('receives incomplete data, throws error', async () => {
         }
     }
 
-    try {
-        await controller(data, storage, dummyJWTPass);
-    } catch (error) {
-        expect(error.message).toBe('content is required');
-    }
+    await expect(controller(data, storage, dummyJWTPass)).rejects.toThrow('content is required');
 })
 
 test('receives incomplete data, throws error', async () => {
@@ -89,11 +81,7 @@ test('receives incomplete data, throws error', async () => {
         }
     }
 
-    try {
-        await controller(data, storage, dummyJWTPass);
-    } catch (error) {
-        expect(error.message).toBe('id is required');
-    }
+    await expect(controller(data, storage, dummyJWTPass)).rejects.toThrow('id is required');
 })
 
 test('jwt token not valid', async () => {
@@ -108,9 +96,5 @@ test('jwt token not valid', async () => {
         }
     }
 
-    try {
-        await controller(data, storage, dummyJWTNotPass);
-    } catch (error) {
-        expect(error.message).toBe('JWT not valid');
-    }
+    await expect(controller(data, storage, dummyJWTNotPass)).rejects.toThrow('JWT not valid');
 })
