@@ -1,9 +1,11 @@
-import { DynamoStorage } from "../lib/storage/dynamoStorage";
-import { controller } from "./controller";
+//import { DynamoStorage } from "../lib/storage/dynamoStorage";
+//import { controller } from "./controller";
+const { DynamoStorage } = require("../lib/storage/dynamoStorage.cjs");
+const { controller } = require("./controller.cjs");
 
 const storage = new DynamoStorage();
 
-export const handler = async (event) => {
+exports.handler = async (event) => {
     const pageId = event.pathParameters.pageId
     try{
         const res = await controller(pageId, storage)

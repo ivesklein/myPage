@@ -1,6 +1,6 @@
 const dynamoose = require("dynamoose");
-const { DBConector } = require("../interfaces/dbConector");
-const Page = require("./pageModel");
+const { DBConector } = require("../interfaces/dbConector.cjs");
+const Page = require("./pageModel.cjs");
 
 if(!process.env.AWS_ACCESS_KEY_ID){throw new Error("envvar AWS_ACCESS_KEY_ID not defined")}
 if(!process.env.AWS_SECRET_ACCESS_KEY){throw new Error("envvar AWS_SECRET_ACCESS_KEY not defined")}

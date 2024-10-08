@@ -1,4 +1,4 @@
-import { DynamoStorage } from "../lib/storage/dynamoStorage";
+import { DynamoStorage } from "../lib/storage/dynamoStorage.cjs";
 import { controller } from "./controller";
 
 const storage = new DynamoStorage();
