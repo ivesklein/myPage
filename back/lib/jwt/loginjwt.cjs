@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { JWTValidator } = require("../interfaces/jwtValidator");
+const { JWTValidator } = require("../interfaces/jwtValidator.cjs");
 
 if(!process.env.JWK_SECRET){throw new Error("envvar JWK_SECRET not defined")}
 

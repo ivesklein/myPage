@@ -1,6 +1,6 @@
 const { controller } = require("./controller")
-const { DBConector } = require("../lib/interfaces/dbConector");
-const { JWTValidator } = require("../lib/interfaces/jwtValidator");
+const { DBConector } = require("../../lib/interfaces/dbConector");
+const { JWTValidator } = require("../../lib/interfaces/jwtValidator.cjs");
 
 const DummyDB = class DummyDB extends DBConector{
     async create(data){

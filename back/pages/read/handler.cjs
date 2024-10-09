@@ -1,6 +1,4 @@
-//import { DynamoStorage } from "../lib/storage/dynamoStorage";
-//import { controller } from "./controller";
-const { DynamoStorage } = require("../lib/storage/dynamoStorage.cjs");
+const { DynamoStorage } = require("../../lib/storage/dynamoStorage.cjs");
 const { controller } = require("./controller.cjs");
 
 const storage = new DynamoStorage();
@@ -14,9 +12,6 @@ exports.handler = async (event) => {
             body: JSON.stringify(res),
         };
     }catch(e){
-        // Log the error for debugging
-        console.error("Error: ", e);
-
         // Handle known 'Item not found' error
         if (e.message === 'Item not found') {
             return {
@@ -27,6 +22,8 @@ exports.handler = async (event) => {
             };
         }
 
+        // Log the error for debugging
+        console.error("Error: ", e);
         // Handle other unknown errors
         return {
             statusCode: e.statusCode || 500,

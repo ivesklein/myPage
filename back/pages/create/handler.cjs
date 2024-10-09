@@ -1,5 +1,6 @@
-import { DynamoStorage } from "../lib/storage/dynamoStorage.cjs";
-import { controller } from "./controller";
+const { DynamoStorage } = require("../../lib/storage/dynamoStorage.cjs");
+const { LoginJWT } = require("../../lib/jwt/loginjwt.cjs");
+const { controller } = require("./controller.cjs");
 
 const storage = new DynamoStorage();
 const jwtvalidator = new LoginJWT();
@@ -15,9 +16,6 @@ export const handler = async (event) => {
             body: JSON.stringify(res),
         };
     }catch(e){
-        // Log the error for debugging
-        console.error("Error: ", e);
-
         // Handle known 'Item already exists' error
         if (e.message === 'Item already exists') {
             return {
@@ -27,6 +25,9 @@ export const handler = async (event) => {
                 }),
             };
         }
+
+        // Log the error for debugging
+        console.error("Error: ", e);
 
         // Handle other unknown errors
         return {

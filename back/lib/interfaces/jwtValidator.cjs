@@ -1,9 +1,9 @@
 exports.JWTValidator = class JWTValidator {
-    async login(idData) {
+    login(idData) {
         throw new Error("Method 'validate' must be implemented.");
     }
 
-    async validate(token) {
+    validate(token) {
         throw new Error("Method 'validate' must be implemented.");
     }
 }

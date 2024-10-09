@@ -1,4 +1,3 @@
-const dynamoose = require("dynamoose");
 const { DBConector } = require("../interfaces/dbConector.cjs");
 const Page = require("./pageModel.cjs");
 
