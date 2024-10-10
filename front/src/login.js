@@ -6,7 +6,7 @@
     const pass = await hashPassword(pass0+Math.floor(Date.now() / 1000 / 3600) * 3600);
     const messageElement = document.getElementById('login-message');
   
-    fetch('https://example.com/api/login', {
+    fetch(API_ENDPOINT+'/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,4 +38,6 @@
     return Array.from(new Uint8Array(hash))
         .map(b => b.toString(16).padStart(2, '0'))
         .join('');
-};
+  };
+
+  document.getElementById('send').onclick = login

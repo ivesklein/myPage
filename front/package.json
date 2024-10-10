@@ -1,0 +1,22 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack",
+    "watch": "npx webpack --watch",
+    "prod": "npx webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "marked": "^14.1.2"
+  }
+}

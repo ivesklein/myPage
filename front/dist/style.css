@@ -5,20 +5,21 @@
   }
 
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Ubuntu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #111;
     color: #f5f5f5;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: normal;
     height: 100vh;
     margin: 0;
+    line-height: 1.4;
   }
 
   #app {
-    width: 100%;
-    max-width: 400px;
     text-align: center;
+    align-items: center;
+    display: flex;
   }
 
   .page {
@@ -36,10 +37,11 @@
   }
 
   .index-page {
-    background-color: darkblue;
-    color: yellow;
-    padding: 40px 20px;
-    border-radius: 10px;
+    background-color: #222;
+    color: #dedede;
+    padding: 40px 4ch;
+    width: 80ch;
+    word-break: break-all;
   }
 
   .login-page {
@@ -47,6 +49,7 @@
     color: #fff;
     padding: 40px 20px;
     border-radius: 10px;
+    width: 50ch;
   }
 
   .login-form {
@@ -89,3 +92,65 @@
     margin-top: 20px;
     color: #ff4d4d;
   }
+
+  #url{
+    position: relative;
+    top: -26px;
+  }
+
+  a {
+    color: rgb(160, 160, 160);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: white;
+}
+
+textarea{
+  height: 99%;
+  padding: 10px;
+  background: lightgray;
+  resize: none;
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  outline: none;
+  width: 80ch;
+}
+
+#editor{
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+#save {
+    padding: 5px;
+    margin: 5px 40px;
+    background: #222222;
+    color: white;
+    font-family: monospace;
+}
+
+/** button things */
+
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { background-color: #f3f3f3; }
+  50% { background-color: #ccc; }
+  100% { background-color: #f3f3f3; }
+}
+
+.success-blink {
+  background-color: green;
+  animation: blink 1s;
+}
+
+@keyframes blink {
+  50% { background-color: lightgreen; }
+}
