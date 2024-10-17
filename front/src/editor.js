@@ -77,7 +77,7 @@ async function navigate() {
 }
 
 async function getContentFromApi(hash) {
-    const url = `${API_ENDPOINT}${hash}`;
+    const url = `${API_ENDPOINT}/page/${hash}`;
     try {
         const response = await fetch(url);
 
