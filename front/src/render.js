@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 async function navigate() {
     const hash = window.location.hash || '#home';
     const route = hash.split("#")
-    const res = await getContentFromApi(route[1]??"home")
+    const res = await getContentFromS3(route[1]??"home")
     document.getElementById('content').innerHTML = marked.parse(res.content);
     document.title = getFirstHeading(res.content)??"Page"
     renderRoute(route[1])
@@ -30,6 +30,27 @@ async function getContentFromApi(hash) {
             createdAt: data.createdAt,
             id: data.id,
             updatedAt: data.updatedAt
+        };
+
+    } catch (error) {
+        return {content: `# Error\n${error.message}`};
+    }
+}
+
+async function getContentFromS3(hash) {
+    const url = `${DOCS_ENDPOINT}/${hash}.md`;
+    try {
+        const response = await fetch(url);
+
+        // Check if the response is successful
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`); // Handle errors (404, 500, etc.)
+        }
+
+        const data = await response.text(); // Parse the JSON response
+        return {
+            content: data,
+            id: hash,
         };
 
     } catch (error) {
