@@ -17,7 +17,8 @@ module.exports = {
   mode: "development",
   plugins:[
     new webpack.DefinePlugin({
-        API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT)
+        API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
+        DOCS_ENDPOINT: JSON.stringify(process.env.DOCS_ENDPOINT),
     })
   ]
 };
