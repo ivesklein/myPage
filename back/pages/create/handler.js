@@ -1,6 +1,6 @@
-const { DynamoStorage } = require("../../lib/storage/dynamoStorage.cjs");
-const { LoginJWT } = require("../../lib/jwt/loginjwt.cjs");
-const { controller } = require("./controller.cjs");
+const { DynamoStorage } = require("../../lib/storage/dynamoStorage.js");
+const { LoginJWT } = require("../../lib/jwt/loginjwt.js");
+const { controller } = require("./controller.js");
 
 const storage = new DynamoStorage();
 const jwtvalidator = new LoginJWT();

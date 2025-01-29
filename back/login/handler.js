@@ -1,5 +1,5 @@
-const { controller } = require("./controller.cjs");
-const { LoginJWT } = require("../lib/jwt/loginjwt.cjs");
+const { controller } = require("./controller.js");
+const { LoginJWT } = require("../lib/jwt/loginjwt.js");
 
 const jwtvalidator = new LoginJWT();
 

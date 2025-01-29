@@ -1,16 +1,17 @@
 {
   "name": "pages",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "npx jest"
   },
   "keywords": [],
   "author": "",
+  "type": "module",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "aws-sdk": "^2.1692.0",
     "dynamoose": "^4.0.1",
     "jsonwebtoken": "^9.0.2",
     "yup": "^1.4.0"

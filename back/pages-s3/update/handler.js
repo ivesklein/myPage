@@ -1,15 +1,12 @@
-const { DynamoStorage } = require("../../lib/storage/dynamoStorage.cjs");
-const { LoginJWT } = require("../../lib/jwt/loginjwt.cjs");
-const { controller } = require("./controller.cjs");
+const { LoginJWT } = require("../../lib/jwt/loginjwt.js");
+const { controller } = require("./controller.js");
+const { S3Storage } = require("../../lib/storage-s3/S3Storage.js");
 
-const storage = new DynamoStorage();
+const storage = new S3Storage();
 const jwtvalidator = new LoginJWT();
 
 exports.handler = async (event) => {
     const {body,headers} = event;
-    console.log({authorization: headers.authorization})
-
-
 
     try{
 

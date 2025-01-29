@@ -1,4 +1,4 @@
-const { DynamoStorage } = require("./dynamoStorage.cjs");
+const { DynamoStorage } = require("./dynamoStorage.js");
 
 const storage = new DynamoStorage();
 

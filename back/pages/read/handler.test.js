@@ -1,4 +1,4 @@
-const { handler } = require("./handler.cjs")
+const { handler } = require("./handler.js")
 
 test('handler ask 404', async () => {
 

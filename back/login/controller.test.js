@@ -1,4 +1,4 @@
-const { controller } = require('./controller.cjs');
+const { controller } = require('./controller.js');
 const yup = require('yup');
 
 const hashPassword = async (password) => {
