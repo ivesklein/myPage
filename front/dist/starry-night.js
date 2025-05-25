@@ -5,6 +5,8 @@ function createStarrySky() {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("width", "100%");
     svg.setAttribute("height", "100%");
+    // z-index -10
+    svg.style.zIndex = "-10";
     
     // Add defs section for filters and masks
     const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
