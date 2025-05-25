@@ -9,7 +9,22 @@ async function navigate() {
     const hash = window.location.hash || '#home';
     const route = hash.split("#")
     const res = await getContentFromS3(route[1]??"home")
-    document.getElementById('content').innerHTML = marked.parse(res.content);
+    const parsedContent = marked.parse(res.content);
+    // if link inside the content does not have #, add a target blank
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(parsedContent, 'text/html');
+
+    const links = doc.querySelectorAll('a');
+    links.forEach(link => {
+        // if link does not have #, add a target blank
+        if (!link.getAttribute('href').startsWith('#')) {
+            link.setAttribute('target', '_blank');
+        }
+    });
+    const serializedContent = new XMLSerializer().serializeToString(doc);
+    const parsedContent2 = serializedContent.replace(/<body>|<\/body>/g, '');
+
+    document.getElementById('content').innerHTML = parsedContent2;
     document.title = getFirstHeading(res.content)??"Page"
     renderRoute(route[1])
 }
