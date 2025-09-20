@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZW9J5H8H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NZW9J5H8H9', { 'page_path': location.pathname + location.hash });
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -16,6 +24,21 @@
       src="https://js-de.sentry-cdn.com/04d216a75004bc2180bfb340cbebaac5.min.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      window.addEventListener("hashchange", () => {
+        Sentry.addBreadcrumb({
+          category: "navigation",
+          message: window.location.hash,
+          level: "info",
+        });
+
+        Sentry.getCurrentScope().setTransactionName(window.location.hash);
+
+        gtag("config", "G-NZW9J5H8H9", {
+          page_path: location.pathname + location.hash
+        });
+      });
+    </script>
     <div id="index-page" class="index-page">
         <div id="url">/</div>
         <div id="content"></div>
